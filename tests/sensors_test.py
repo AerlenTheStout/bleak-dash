@@ -95,7 +95,7 @@ async def main():
     if not robot:
         print("No compatible robot found.")
         return
-    if type(robot) is not DashRobot:
+    if not isinstance(robot, DashRobot):
         print("This test is only for Dash robots.")
         return
 
