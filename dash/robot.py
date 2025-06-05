@@ -497,6 +497,11 @@ async def discover_and_connect(retry_attempts=3, retry_delay=5):
                     cue_robot = Robot(device.address)
                     await cue_robot.connect()
                     return cue_robot
+                elif device.name == "Love":
+                    logging.info(f"Found Love at: {device.address}")
+                    robot = DashRobot(device.address)
+                    await robot.connect()
+                    return robot
                 
             logging.warning("Compatible device not found. Retrying...")
         except Exception as e:
